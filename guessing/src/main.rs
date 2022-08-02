@@ -1,3 +1,5 @@
+/* From "The Rust Programming Language" */
+
 use std::cmp::Ordering;
 use rand::Rng;
 
@@ -5,15 +7,14 @@ const MAX_ATTEMPTS: i32 = 3;
 
 fn main() {
 
+    let mut i: i32 = 1;
     let secret: i32 = rand::thread_rng().gen_range(1..101);
     println!("[Shhhhhh secret number is {}]", secret);
-
-    let mut i: i32 = 1;
+    let mut guess: String = String::new();
 
     loop {
         println!("Enter a guess - Attempt {}", i);
-        let mut guess: String = String::new();
-
+        guess = String::new();
         std::io::stdin()
             .read_line(&mut guess)
             .expect("Error reading input");
